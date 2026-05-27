@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Render3D/Render3D.vcxproj" Id="aefc8792-809b-4f6a-9c4b-7b4130dc58f1" />
+  <Project Path="SandBox/SandBox.vcxproj" Id="ebf5fa11-f726-4b4d-8714-98162e6f5a36">
+    <BuildType Project="Release" />
+  </Project>
+</Solution>
