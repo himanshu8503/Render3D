@@ -1,0 +1,3 @@
+[submodule "Render3D/ThirdParty/spdlog"]
+	path = Render3D/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog.git

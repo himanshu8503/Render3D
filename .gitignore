@@ -1,4 +1,21 @@
+# Visual Studio
 .vs/
+
+*.vcxproj
+*.vcxproj.filters
+
+*.user
+*.sln
+*.slnx
+*.slnLaunch
+
+# Build
 bin/
 bin-int/
-*.user
+
+# Binary files
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
