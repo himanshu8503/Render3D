@@ -26,6 +26,7 @@ project "Render3D"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/ThirdParty/spdlog/include"
 	}
 
