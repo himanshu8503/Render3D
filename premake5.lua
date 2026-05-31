@@ -10,6 +10,16 @@ workspace "Render3D"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include Directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Render3D/ThirdParty/GLFW/include"
+
+-- GLFW project
+
+include "Render3D/ThirdParty/GLFW"
+
+-- Render3D project
+
 project "Render3D"
 	location "Render3D"
 	kind "SharedLib"
@@ -17,6 +27,9 @@ project "Render3D"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "R3Dpch.h"
+	pchsource "Render3D/src/R3Dpch.cpp"
 
 	files
 	{
@@ -27,7 +40,14 @@ project "Render3D"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/ThirdParty/spdlog/include"
+		"%{prj.name}/ThirdParty/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -59,6 +79,9 @@ project "Render3D"
 	filter "configurations:Dist"
 		defines "R3D_DIST"
 		optimize "on"
+
+
+-- SandBox project
 
 project "SandBox"
 	location "SandBox"
