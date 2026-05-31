@@ -70,14 +70,17 @@ project "Render3D"
 	
 	filter "configurations:Debug"
 		defines "R3D_DEBUG"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "R3D_RELEASE"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "R3D_DIST"
+		buildoptions "/MD"
 		optimize "on"
 
 
@@ -123,12 +126,15 @@ project "SandBox"
 	
 	filter "configurations:Debug"
 		defines "R3D_DEBUG"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "R3D_RELEASE"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "R3D_DIST"
+		buildoptions "/MD"
 		optimize "on"

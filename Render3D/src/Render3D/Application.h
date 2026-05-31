@@ -1,10 +1,11 @@
 #pragma once
 
 #include "R3Dpch.h"
-#include "Core.h"
 #include "Window.h"
 
-#include "Events/ApplicationEvent.h"
+#include "Render3D/Core.h"
+#include "Render3D/Events/ApplicationEvent.h"
+#include "Render3D/LayerStack.h"
 
 namespace Render3D
 {
@@ -17,11 +18,15 @@ namespace Render3D
 		void Run();
 		void OnEvent(Event& e);
 
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
 		bool OnWindowClose(WindowCloseEvent& e);
 
 	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_running = true;
+		LayerStack m_LayerStack;
 	};
 
 	Application* CreateApplication();
