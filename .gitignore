@@ -10,8 +10,8 @@
 *.slnLaunch
 
 # Build
-bin/
-bin-int/
+/bin/
+/bin-int/
 
 # Binary files
 *.exe
