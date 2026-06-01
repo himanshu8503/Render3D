@@ -13,10 +13,19 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include Directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Render3D/ThirdParty/GLFW/include"
+IncludeDir["Glad"] = "Render3D/ThirdParty/Glad/include"
+IncludeDir["imgui"] = "Render3D/ThirdParty/imgui"
 
 -- GLFW project
 
 include "Render3D/ThirdParty/GLFW"
+
+--Glad Project
+
+include "Render3D/ThirdParty/Glad"
+
+-- imgui project
+include "Render3D/ThirdParty/imgui"
 
 -- Render3D project
 
@@ -41,12 +50,16 @@ project "Render3D"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/ThirdParty/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.imgui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"imgui",
 		"opengl32.lib"
 	}
 
@@ -60,7 +73,8 @@ project "Render3D"
 		defines
 		{
 			"R3D_PLATFORM_WINDOWS",
-			"R3D_DLL_BUILD"
+			"R3D_DLL_BUILD",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

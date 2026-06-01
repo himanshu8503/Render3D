@@ -66,12 +66,15 @@ namespace Render3D
 			int success = glfwInit();
 			R3D_CORE_ASSERT(success, "Could not intialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
+			
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		R3D_CORE_ASSERT(status, "Failed to Initialize Glad!");
 		SetVSync(true);
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
