@@ -37,6 +37,8 @@ namespace Render3D
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool GetVSync() = 0;
 
+		virtual void* GetNativeWindow() const = 0;
+
 		static Window* Create(const WindowProps& props = WindowProps());
 
 	};

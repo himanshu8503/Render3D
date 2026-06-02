@@ -118,6 +118,7 @@ project "SandBox"
 	includedirs
 	{
 		"Render3D/ThirdParty/spdlog/include",
+		"Render3D/ThirdParty/imgui/",
 		"Render3D/src"
 	}
 

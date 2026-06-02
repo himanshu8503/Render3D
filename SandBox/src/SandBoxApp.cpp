@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		R3D_INFO("ExampleLayer::Update");
+		//R3D_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Render3D::Event& event) override
@@ -26,6 +26,7 @@ public:
 	SandBox()
 	{
 		PushLayer(new ExampleLayer);
+		PushOverlay(new Render3D::ImGuiLayer());
 	}
 	~SandBox()
 	{

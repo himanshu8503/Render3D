@@ -18,6 +18,9 @@ namespace Render3D
 		void Run();
 		void OnEvent(Event& e);
 
+		static inline Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; }
+
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
@@ -27,6 +30,7 @@ namespace Render3D
 		std::unique_ptr<Window> m_Window;
 		bool m_running = true;
 		LayerStack m_LayerStack;
+		static Application* s_Instance;
 	};
 
 	Application* CreateApplication();

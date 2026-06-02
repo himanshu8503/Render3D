@@ -10,8 +10,13 @@
 namespace Render3D
 {
 #define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
+	
+	Application* Application::s_Instance = nullptr;
+
 	Render3D::Application::Application()
 	{
+		R3D_CORE_ASSERT(!s_Instance, "Application is already exist!");
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
@@ -37,11 +42,13 @@ namespace Render3D
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 
@@ -51,11 +58,13 @@ namespace Render3D
 
 		while (m_running)
 		{
-
+			
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
 			m_Window->OnUpdate();
+
+			glClear(GL_COLOR_BUFFER_BIT);
 		}
 
 	}
