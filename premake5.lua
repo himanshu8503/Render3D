@@ -10,6 +10,8 @@ workspace "Render3D"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+startproject "SandBox"
+
 -- Include Directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Render3D/ThirdParty/GLFW/include"
@@ -33,6 +35,7 @@ project "Render3D"
 	location "Render3D"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -65,9 +68,8 @@ project "Render3D"
 
 	filter "system:windows"
 		cppdialect "c++20"
-		staticruntime "on"
 		systemversion "latest"
-
+		disablewarnings { "4251" }
 		buildoptions { "/utf-8" }
 
 		defines
@@ -84,17 +86,17 @@ project "Render3D"
 	
 	filter "configurations:Debug"
 		defines "R3D_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "R3D_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "R3D_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "on"
 
 
@@ -104,6 +106,8 @@ project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
+
 
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -129,7 +133,6 @@ project "SandBox"
 
 	filter "system:windows"
 		cppdialect "c++20"
-		staticruntime "on"
 		systemversion "latest"
 
 		buildoptions { "/utf-8" }
@@ -141,15 +144,15 @@ project "SandBox"
 	
 	filter "configurations:Debug"
 		defines "R3D_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "R3D_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "R3D_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "on"

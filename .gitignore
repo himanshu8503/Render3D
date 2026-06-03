@@ -16,6 +16,7 @@ bin-int/
 # Binary files
 *.exe
 *.dll
+*.ini
 *.lib
 *.obj
 *.pdb
