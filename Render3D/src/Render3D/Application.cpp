@@ -6,6 +6,7 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
 
 namespace Render3D
 {
@@ -61,6 +62,7 @@ namespace Render3D
 			
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
 
 			m_Window->OnUpdate();
 

@@ -26,7 +26,7 @@ namespace Render3D
 		void OnEvent(Event& e) override;
 
 	private:
-		float m_time;
+		float m_time = 0.0f;
 		bool m_blokingEvent = true;
 	};
 }

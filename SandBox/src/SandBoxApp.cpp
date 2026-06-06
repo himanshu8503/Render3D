@@ -10,12 +10,20 @@ public:
 
 	void OnUpdate() override
 	{
-		//R3D_INFO("ExampleLayer::Update");
+		bool status = Render3D::Input::IsKeyPress(R3D_KEY_TAB);
+		if (status)
+		{
+			R3D_TRACE("The Tab IS Pressed");
+		}
 	}
 
 	void OnEvent(Render3D::Event& event) override
 	{
-		R3D_TRACE("{0}", event);
+		if (event.GetEventType() == Render3D::EventType::KeyPressed)
+		{
+			Render3D::KeyPressedEvent& e = (Render3D::KeyPressedEvent&)event;
+			R3D_TRACE("The Pressed Key : {0}", (char)e.GetKeyCode());
+		}
 	}
 
 };

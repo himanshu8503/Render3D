@@ -1,0 +1,14 @@
+#pragma once
+
+#define R3D_MOUSE_BUTTON_1         0
+#define R3D_MOUSE_BUTTON_2         1
+#define R3D_MOUSE_BUTTON_3         2
+#define R3D_MOUSE_BUTTON_4         3
+#define R3D_MOUSE_BUTTON_5         4
+#define R3D_MOUSE_BUTTON_6         5
+#define R3D_MOUSE_BUTTON_7         6
+#define R3D_MOUSE_BUTTON_8         7
+#define R3D_MOUSE_BUTTON_LAST      R3D_MOUSE_BUTTON_8
+#define R3D_MOUSE_BUTTON_LEFT      R3D_MOUSE_BUTTON_1
+#define R3D_MOUSE_BUTTON_RIGHT     R3D_MOUSE_BUTTON_2
+#define R3D_MOUSE_BUTTON_MIDDLE    R3D_MOUSE_BUTTON_3

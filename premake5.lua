@@ -1,5 +1,6 @@
 workspace "Render3D"
 	architecture "x64"
+	startproject "SandBox"	
 
 	configurations
 	{
@@ -10,7 +11,6 @@ workspace "Render3D"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-startproject "SandBox"
 
 -- Include Directories relative to root folder (solution directory)
 IncludeDir = {}
@@ -81,7 +81,7 @@ project "Render3D"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/SandBox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/SandBox./\"")
 		}
 	
 	filter "configurations:Debug"
